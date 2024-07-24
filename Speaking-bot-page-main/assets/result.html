@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speech Recognition Result</title>
+</head>
+<body>
+  <h1>Speech Recognition Result</h1>
+
+  <div id="output"></div>
+  <p>Total Words Used: <span id="wordCount"></span></p>
+  <p>Total Articles Used: <span id="articleCount"></span></p>
+  <p>Total Gaps: <span id="gapCount"></span></p>
+  <p>Total Vowels Used: <span id="vowelCount"></span></p>
+  <p>Total "ed" Words Used: <span id="edWordCount"></span></p>
+  <p>Total "ing" Words Used: <span id="ingWordCount"></span></p>
+  <p>Time Taken: <span id="timeTaken"></span> seconds</p>
+  <p>Start Time: <span id="startTime"></span></p>
+  <p>End Time: <span id="endTime"></span></p>
+  <p><strong>Articles and Following Words:</strong></p>
+  <ul id="articleWordsList"></ul>
+
+  <script>
+    const outputDiv = document.getElementById('output');
+    const wordCountSpan = document.getElementById('wordCount');
+    const articleCountSpan = document.getElementById('articleCount');
+    const gapCountSpan = document.getElementById('gapCount');
+    const vowelCountSpan = document.getElementById('vowelCount');
+    const edWordCountSpan = document.getElementById('edWordCount');
+    const ingWordCountSpan = document.getElementById('ingWordCount');
+    const timeTakenSpan = document.getElementById('timeTaken');
+    const startTimeSpan = document.getElementById('startTime');
+    const endTimeSpan = document.getElementById('endTime');
+    const articleWordsList = document.getElementById('articleWordsList');
+
+    // Retrieve transcription from session storage
+    const transcription = sessionStorage.getItem('transcription') || '';
+
+    // Display transcription
+    outputDiv.textContent = transcription;
+
+    // Calculate word count
+    const words = transcription.trim().split(/\s+/);
+    const wordCount = words.length;
+    wordCountSpan.textContent = wordCount;
+
+    // Calculate article count
+    const articles = words.filter(word => ['a', 'an', 'the'].includes(word.toLowerCase()));
+    const articleCount = articles.length;
+    articleCountSpan.textContent = articleCount;
+
+    // Calculate gap count
+    const gaps = transcription.trim().split(' ').filter(word => word === '');
+    const gapCount = gaps.length;
+    gapCountSpan.textContent = gapCount;
+
+    // Calculate vowel count
+    const vowels = transcription.trim().toLowerCase().split('').filter(char => 'aeiou'.includes(char));
+    const vowelCount = vowels.length;
+    vowelCountSpan.textContent = vowelCount;
+
+    // Calculate "ed" word count
+    const edWords = words.filter(word => word.toLowerCase().endsWith('ed'));
+    const edWordCount = edWords.length;
+    edWordCountSpan.textContent = edWordCount;
+
+    // Calculate "ing" word count
+    const ingWords = words.filter(word => word.toLowerCase().endsWith('ing'));
+    const ingWordCount = ingWords.length;
+    ingWordCountSpan.textContent = ingWordCount;
+
+    // Retrieve time-related information from session storage
+    const timeTaken = sessionStorage.getItem('timeTaken') || '';
+    const startTime = sessionStorage.getItem('startTime') || '';
+    const endTime = sessionStorage.getItem('endTime') || '';
+
+    // Display time-related information
+    timeTakenSpan.textContent = timeTaken;
+    startTimeSpan.textContent = startTime;
+    endTimeSpan.textContent = endTime;
+
+    // Extract articles and their following words
+    const articleWords = [];
+    let currentArticle = null;
+
+    words.forEach(word => {
+      if (['a', 'an', 'the'].includes(word.toLowerCase())) {
+        // If the word is an article, store it as the current article
+        currentArticle = word;
+      } else if (currentArticle !== null) {
+        // If a current article exists, add the word after it to the list
+        articleWords.push(`${currentArticle} ${word}`);
+        currentArticle = null; // Reset current article
+      }
+    });
+
+    // Display the list of articles and their following words
+    articleWords.forEach(articleWord => {
+      const listItem = document.createElement('li');
+      listItem.textContent = articleWord;
+      articleWordsList.appendChild(listItem);
+    });
+  </script>
+</body>
+</html>

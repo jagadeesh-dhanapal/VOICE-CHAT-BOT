@@ -1,0 +1,164 @@
+ .register-page,.login-page{
+    background: #C0DBEA;
+}
+
+.card{
+    border: none;
+    background: none;
+}
+
+/* Register page  */
+
+.register{
+    max-height: 100vh;
+    padding-top: 95px;
+    width: 100%;
+}
+.register .container h3{
+    color: #D885A3;
+}
+.register .container .card{
+    margin-bottom: 50px;
+}
+.register .container .card .card-body{
+    background: #fff !important;
+    border-radius: 35px;
+}
+.register .container .card .card-body form .form-group input{
+      background-color: #C0DBEA;
+      border: none;
+      outline: none;
+}
+
+/* ------------------------------- */
+
+/* Zaciboo page */
+#zaciboo-page{
+    background:rgba(230, 190, 139, 0.864);
+}
+.intro-page{
+    max-height: 100vh;
+    padding-top: 95px;
+    width: 100%;
+}
+.intro-page .container .card .card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30%;
+    line-height: 5px;
+}
+.intro-page .container .card .card-body h2{
+    font-weight: 600;
+}
+.intro-page .container .card .card-body span{
+    font-weight: 700;
+}
+.intro-page .container .card .card-body .disc h5{
+    margin-top: 10%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: 500;
+    line-break: normal;
+}
+.intro-page .container .card .card-body button{
+    background: blueviolet;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+.intro-page .container .card .card-body button:hover{
+    box-shadow: 0px 3px 10px 3px #5c2877;
+}
+/* ---------------------- */
+
+/* Output Page */
+#output-pg{
+    background-color: black;
+}
+.output-pg{
+    max-height: 100vh;
+    padding-top: 3%;
+    width: 100%;
+}
+.output-pg .container .card .card-body{
+    padding-top: 20%;
+    color: white;
+    font-size: 25px;
+}
+.output-pg .container h1{
+    color: white;
+}
+.output-pg .words-taken .row .card .card-body .result{
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* Communication */
+
+.communication{
+    max-height: 150vh;
+    width: 100%;
+}
+.communication .card {
+    background: white;
+}
+
+/* Construct simple-sentences */
+
+.simple-sentences{
+    max-height: 150vh;
+    width: 100%;
+}
+.simple-sentences .card .card-body{
+    margin-top: 90px;
+    background: white;
+    border-radius: 30px;
+}
+.simple-sentences .repeated-words h3,h2,h4{
+    padding-top: 20px;
+    font-weight: 600;
+}
+
+/* Login page */
+
+.login{
+    padding-top: 3%;
+}
+.login .container .card .cols button{
+    background: none;
+    border: none;
+}
+.login .container .card .cols img{
+    padding-top: 14%;
+}
+.login .container .card .card-body{
+    background: #fff !important;
+    border-radius: 35px;
+}
+.login .container .card .card-body h2,h5{
+    font-weight: 600;
+}
+.login .container .card .card-body form .form-group input{
+    background-color: #C0DBEA;
+    border: none;
+    outline: none;
+}
+.login .container .card .card-body form .select button{
+    background-color:  #D885A3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+.login .container .card .card-body .apps{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
